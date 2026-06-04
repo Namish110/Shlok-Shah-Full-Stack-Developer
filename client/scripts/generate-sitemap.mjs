@@ -2,7 +2,14 @@ import fs from "node:fs";
 import path from "node:path";
 
 const publicDir = path.resolve("public");
-const siteUrl = process.env.VITE_SITE_URL?.trim().replace(/\/+$/, "");
+const configuredSiteUrl = process.env.VITE_SITE_URL?.trim();
+const vercelProductionUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL?.trim();
+const vercelUrl = process.env.VERCEL_URL?.trim();
+
+const resolvedDomain = configuredSiteUrl || vercelProductionUrl || vercelUrl;
+const siteUrl = resolvedDomain
+  ? `https://${resolvedDomain.replace(/^https?:\/\//, "").replace(/\/+$/, "")}`
+  : "";
 
 const routes = ["/"];
 
