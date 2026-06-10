@@ -10,7 +10,7 @@ import Projects from "./components/Projects";
 import Faq from "./components/Faq";
 import ClientReview from "./components/ClientReview";
 import Certificates from "./components/Certificates";
-import Contact from "./components/Contact";
+import Contact from "./components/ContactForm";
 
 const routePaths = new Set(["/", "/about", "/skills", "/experience", "/projects", "/faq", "/reviews", "/certificates", "/contact"]);
 
